@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculadora</title>
+	<meta charset="UTF-8">
+	<style type="text/css">
+		main {
+			width: 800px; border: 1px solid black; padding: 20px; margin: 30px auto; text-align: center; background-color: lightgray; border-radius: 5px; box-shadow: 3px 3px 3px grey;
+		}
+		div#resultado {
+			display: inline-block; background: white; padding: 1px 2px; border: 1px solid black; width: 166px; vertical-align: top;
+		}
+		.error {
+			background: yellow;
+		}
+	</style>
+	<script type="text/javascript" src="calculadora.js" defer></script>
+</head>
+<body>
+	<main>
+	<!-- calculadora -->
+		<form name="calculator">
+			<input type="number" id="operando1" placeholder="Operando 01" required>
+			<select id="operacion">
+				<option disabled selected>Operación</option>
+				<option>+</otpion>
+				<option>-</option>
+				<option>*</option>
+				<option>/</option>
+			</select>
+			<input type="number" id="operando2" placeholder="Operando 02" required>
+			&nbsp=&nbsp
+			<div id="resultado"><p></p></div></br></br>
+			<input type="button" value="Calcular" onclick="Calcular()">
+		</form>
+	</main>
+</body>
+</html> 
