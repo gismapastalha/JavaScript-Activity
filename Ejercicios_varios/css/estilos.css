@@ -1,0 +1,42 @@
+* {
+	font-family: arial;
+}
+body {
+	margin:0px;
+	background-color:lightgrey;
+}
+.contenedor {
+	margin: 20px auto;
+	width: 1200px;
+	border: 5px solid #022F7C;
+	border-radius:55px;
+	padding:20px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+article {
+	border:2px solid blue;
+	border-radius:15px;
+	height: 300px;
+	width: 45%;
+	margin: 5px auto;
+	padding:10px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-around;
+	text-align: center;
+}
+table, td {border: 1px solid blue}
+label {width:100px; display: inline-block;	vertical-align: top}
+#a4 div {text-align: left;}
+
+#a2 label {
+	width: 200px;
+	display: inline-block;
+}
+
+#a3 {display: block;}
+#a3 div {
+	width: 150px; height: 50px; border: 2px solid orange; display: inline-flex; justify-content: center; align-items: center;
+}
