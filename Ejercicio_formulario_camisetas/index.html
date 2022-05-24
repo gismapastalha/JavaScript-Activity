@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/page.css" type="text/css" />
+	<script type="text/javascript" src="js/script.js" defer></script>
+</head>
+<body>
+    <div class='contenedor'>
+        <section>
+            <div class='info1'>
+                <form name='formulario'>
+                    <label>Nombre y apellidos</label>
+                    <input type='text' id='nombre'><br><br>
+                    <label>Dirección</label>
+                    <input type='text' id='direccion'><br><br>
+                    <label>Cantidad</label>
+                    <input type='number' id='cantidad' value='1' min='1'><br><br>
+                    <label>Seleccione talla:</label>
+                    XS<input type='radio' name='talla' checked value='XS'>
+                    S<input type='radio' name='talla' value='S'>
+                    M<input type='radio' name='talla' value='M'>
+                    L<input type='radio' name='talla' value='L'>
+                    XL<input type='radio' name='talla' value='XL'><br><br> 
+                    <label>Seleccione color:</label>
+                    <select id='color'>
+                        <option>blanca</option>
+                        <option>amarilla</option>
+                        <option>naranja</option>
+                        <option>roja</option>
+                        <option>verde</option>
+                        <option>azul</option>
+                        <option>negra</option>
+                    </select><br><br> 
+                    <input type='button' id='enviar' value='Enviar'><br><br>
+                    <div id='resumen'></div>
+                </form>
+            </div>
+            <div class='info2'>   
+                <img id='camiseta' src='img/camiseta_blanca.png'>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
