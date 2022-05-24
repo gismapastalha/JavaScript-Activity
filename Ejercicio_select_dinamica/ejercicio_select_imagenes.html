@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        main {width: 300px; margin:auto; text-align: center;}
+        img {width: 200px; height: 200px; margin: 5px}
+    </style>
+    <script src="js/script_select.js" defer></script>
+</head>
+<body>
+    <main>
+        <form>
+            <select id="imagenes" onchange="mostrarImagen()">
+                <option value="00" disabled selected>Seleccione una imagen</option>
+            </select>
+        </form>
+        <hr>
+        <div id="imagen"><img></div>
+    </main>
+</body>
+</html>
