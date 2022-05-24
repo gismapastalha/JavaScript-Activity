@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+	<meta charset='UTF-8'>
+	<title>Coste hotel</title>
+	<style type="text/css">
+		label {
+			display: inline-block;
+			width: 140px;
+		}
+
+		form {
+			border: 1px solid orange;
+			border-radius: 10px;
+			width: 350px;
+			margin:auto;
+			padding: 15px;
+		}
+	</style>
+	<script>
+        //declarar variables globales y constantes
+        const PRECIO_NOCHE = 60
+        const PRECIO_COCHE = 40
+        const DESC_COCHE_7DIAS = 50
+        const DESC_COCHE_3DIAS = 20
+
+        //DEFINICION DE FUNCIONES
+        //-----------------------
+        
+        //definir función coste del hotel
+        function costeHotel(n) {
+            //calcular precio hotel y devolverlo fuera de la función
+            return PRECIO_NOCHE * n
+        }
+            
+        //definir función coste del avión
+        function costeAvion(ciudad) {
+            //evaluar ciudad (en minúsculas) para asignar el precio correcto y devolverlo fuera de la función
+            switch (ciudad.toLowerCase()) {
+                case 'paris':
+                case 'parís':
+                    return 180 //salimos de la función y devolvemos el valor 180
+                case 'londres':
+                    return 120
+                case 'boston':
+                    return 600
+                default: 
+                    //si la ciudad no existe mostrar una alerta de error
+                    alert('Ciudad no válida')
+                    return 0
+            }       
+        }
+
+        //definir función coste del coche
+        function costeCoche(coche) {
+            //calcular el precio de alquiler del coche
+            var precio = coche * PRECIO_COCHE
+
+            //calcular el descuento a aplicar y devolver el precio fuera de la función
+            if (coche >= 7) {
+                precio -= DESC_COCHE_7DIAS //precio = precio - 50
+            } else if (coche >= 3) {
+                precio -= DESC_COCHE_3DIAS
+            }
+
+            return precio
+        }
+
+        //definir función coste total del viaje
+        function costeViaje() {
+			//desactivar el envio al servidor
+			event.preventDefault()
+
+			//buscar los valores en el formulario
+			var noches = document.querySelector('#noches').value
+			var ciudad = document.querySelector('#ciudad').value
+			var coche = document.querySelector('#coche').value
+
+			//validaciones previas
+			//validar noches informado y mayor que 0
+			//  required         min='1'
+			if (noches == '' || noches <= 0) {
+				alert('Número de noches debe ser 1 como mínimo')
+				return //salir de la función
+			}
+
+			//validar ciudad seleccionada
+			if (ciudad == '00') {
+				alert('Se debe seleccionar un destino')
+				return
+			}
+
+			//validar dias no negativos y que no sea superior al número de dias de hotel
+			//    min='0'
+			if (coche < 0) {
+				alert('Días de alquiler no puede tener valor negativo')
+				return
+			}
+
+			if (coche > noches) {
+				alert('Dias de alquiler no puede ser superior a dias de estancia en el hotel')
+				return
+			}
+
+			//calcular el precio total del viaje
+            var precioViaje = costeHotel(noches) + costeAvion(ciudad) + costeCoche(coche)
+
+			//enviar el precio total al formulario
+			document.querySelector('#total').value = precioViaje
+        }
+
+    </script>
+</head>
+<body>
+	<main>
+		<form onsubmit="costeViaje()">
+			<label>Número de noches</label>
+			<input type='number' min='1' id='noches' required placeholder="Mínimo 1 noche">
+			<br><br>
+			<label>Ciudad</label>
+			<select id='ciudad'>
+				<option disabled selected value="00">Selecciona un destino</option>
+				<option>París</option>
+				<option>Londres</option>
+				<option>Boston</option>
+			</select>
+			<br><br>
+			<label>Alquiler coche</label>
+			<input type='number' min='0' id='coche'>
+			<br><br>
+			<input type='submit' value='Calcular'>
+			<br><br>
+			<label>Coste viaje</label>
+			<input type='text' disabled id='total'>
+		</form>
+	</main>
+</body>
+</html>
