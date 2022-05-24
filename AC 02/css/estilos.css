@@ -1,0 +1,27 @@
+main {
+	width: 700px;
+	padding: 25px;
+	margin: 5px auto auto auto;
+	box-sizing: border-box;	
+	text-align: left;
+	border: 2px solid black;
+	border-radius: 25px;
+}
+div.resultado {
+	height: 150px;
+	color: green;
+	box-sizing: border-box;
+	background-color: pink;
+	font-size: 5em;
+	padding: 20px;
+}
+label {
+	width: 180px;
+	display: inline-block;
+}
+#resultado {
+	width: 600px;
+}
+.error{
+	background: yellow;
+}
