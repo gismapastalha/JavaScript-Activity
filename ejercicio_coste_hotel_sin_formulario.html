@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coste Hotel</title>
+    <script>
+        //declarar variables globales y constantes
+        const PRECIO_NOCHE = 60
+        const PRECIO_COCHE = 40
+        const DESC_COCHE_7DIAS = 50
+        const DESC_COCHE_3DIAS = 20
+
+        //PRECIO HOTEL
+        
+        //solicitar al usuario un numero de noches
+        var noches = window.prompt('Noches de hotel?')
+
+        //ejecutar la función de cálculo precio hotel y mostrar resultado
+        //var precioHotel = costeHotel(noches)
+        //window.alert(precioHotel)
+
+        //PRECIO AVION
+        
+        //solicitar al usuario una ciudad
+        var ciudad = window.prompt('Ciudad de destino')
+
+        //ejecutar la función de cálculo precio avión y mostrar resultado
+        //var precioAvion = costeAvion(ciudad)
+        //window.alert(precioAvion)
+
+        //PRECIO ALQUILER COCHE
+        
+        //solicitar al usuario un número de días de alquiler
+        var coche = window.prompt('Días alquiler coche')
+
+        //ejecutar la función de cálculo precio coche y mostrar resultado
+        //var precioCoche = costeCoche(coche)
+        //window.alert(precioCoche)
+
+        //ejecutar la función de cálculo total del viaje a partir de los tres datos introducidos por el usuario
+        costeViaje(noches, ciudad, coche)
+        
+        //DEFINICION DE FUNCIONES
+        //-----------------------
+        
+        //definir función coste del hotel
+        function costeHotel(n) {
+            //calcular precio hotel y devolverlo fuera de la función
+            return PRECIO_NOCHE * n
+        }
+            
+        //definir función coste del avión
+        function costeAvion(ciudad) {
+            //evaluar ciudad (en minúsculas) para asignar el precio correcto y devolverlo fuera de la función
+            switch (ciudad.toLowerCase()) {
+                case 'paris':
+                case 'parís':
+                    return 180 //salimos de la función y devolvemos el valor 180
+                case 'londres':
+                    return 120
+                case 'boston':
+                    return 600
+                default: 
+                    //si la ciudad no existe mostrar una alerta de error
+                    alert('Ciudad no válida')
+                    return 0
+            }       
+        }
+
+        //definir función coste del coche
+        function costeCoche(coche) {
+            //calcular el precio de alquiler del coche
+            var precio = coche * PRECIO_COCHE
+
+            //calcular el descuento a aplicar y devolver el precio fuera de la función
+            if (coche >= 7) {
+                precio -= DESC_COCHE_7DIAS //precio = precio - 50
+            } else if (coche >= 3) {
+                precio -= DESC_COCHE_3DIAS
+            }
+
+            return precio
+        }
+
+        //definir función coste total del viaje
+        function costeViaje(noches, ciudad, coche) {
+            var precioViaje = costeHotel(noches) + costeAvion(ciudad) + costeCoche(coche)
+
+            alert(precioViaje)
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
